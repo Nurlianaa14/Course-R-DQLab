@@ -1,6 +1,8 @@
 ##Operator R
 +, -, /, abs(), factorial, rnorm(x, mean=0, sd= 1), round(x, digits=...), ceiling(), floor()
 
+
+
 ##Vektor
 c(1,2,3)
 c("a","b","c")
@@ -25,6 +27,8 @@ diff(x), Mengembalikan vector yang berisi selisih dari tiap elemen.
 max(x), Mengembalikan elemen vector yang paling besar.
 min(x), Mengembalikan elemen vector yang paling kecil.
 mean(x), Mengembalikan nilai rata-rata dari elemen di dalam vector.
+
+
 
 ##Dataframe
 > #Konstruksi Dataframe
@@ -116,6 +120,73 @@ $pekerjaan
 
 $periode_kerja
 [1] "numeric"
+
+##sapply
+sapply(X, FUN, ...)
+
+> #Tampilkan kelas atau tipe data dari tiap kolom pada df dengan menggunakan lapply()
+> l_apply <- lapply(df,class)
+
+> #tampilkan isi dari variable l_apply
+> l_apply
+$nama
+[1] "character"
+
+$pekerjaan
+[1] "character"
+
+$periode_kerja
+[1] "numeric"
+
+
+> #tampilkan class dari variable l_apply
+> class(l_apply)
+[1] "list"
+
+> #Tampilkan kelas atau tipe data dari tiap kolom pada df dengan menggunakan sapply()
+> s_apply <- sapply(df,class)
+
+> #tampilkan isi dari variable s_apply
+> s_apply
+         nama     pekerjaan periode_kerja 
+  "character"   "character"     "numeric" 
+
+> #tampilkan class dari variable s_apply
+> class(s_apply)
+[1] "character"
+
+
+
+##aggregate(x, by, FUN)
+
+x   : Dataframe atau salah satu field dari Dataframe
+by   : list() berisi grouping element (yang menentukan grouping dari subset)
+FUN : Function (fungsi agregasi yang digunakan, misalnya: sum, count, dsb.)
+
+> data
+    nama   hari jam_kerja
+1  Andra  Senin         8
+2  Andra Selasa         9
+3  Senja  Senin         8
+4  Senja Selasa         8
+5 Aksara  Senin         9
+6 Aksara Selasa         9
+7  Kroma  Senin         8
+8  Kroma Selasa        10
+
+> #Jumlah jam kerja tiap individu
+> aggregate(data$jam_kerja, list(data$nama), sum)
+  Group.1  x
+1  Aksara 18
+2   Andra 17
+3   Kroma 18
+4   Senja 16
+
+> #Rata-rata jam kerja berdasarkan hari
+> aggregate(data$jam_kerja, list(data$hari), mean)
+  Group.1    x
+1  Selasa 9.00
+2   Senin 8.25 
 
 
 
