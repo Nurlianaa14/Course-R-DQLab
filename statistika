@@ -1,0 +1,23 @@
+#Statistik sebagai Ilmu Peluang
+Sampel adalah representasi dari sebagian elemen dari populasi
+Populasi adalah total dari semua elemen
+
+Kemudian untuk mengukur karakteristik dari sampel dan populasi, dengan melihat nilai statistik dan parameter. Untuk lebih jelasnya dapat dilihat pengertian berikut
+Perbedaan antara statistik dan parameter adalah sebagai berikut:
+Statistik adalah nilai estimasi karateristik populasi.
+Parameter adalah nilai karakteristik populasi atau bisa disebut karakteristik sebenarnya.
+
+Kuantitatif adalah data yang dinyatakan dalam bentuk angka
+Kualitatif adalah data yang dinyatakan dalam bentuk bukan angka
+
+Dan berikut adalah jenis-jenis skala pengukuran data:
+
+Nominal: adalah skala yang diberikan hanya sebagai label saja, tidak mengandung pengertian tingkatan.
+Contoh: Jika pria =1 dan wanita = 2, artinya disini 1 dan 2 adalah nominal yang mewakili pria dan wanita. Disini nilai 2 tidak lebih besar dari nilai 1.
+Ordinal: adalah skala yang mengandung pengertian tingkatan.
+Contoh: Data kepuasan, 1 = tidak puas, 2 = puas, dan 3 = sangat puas, artinya 1<2<3.
+Interval: adalah skala yang mempunyai sifat ordinal dan mengandung jarak(interval).
+Misalnya: harga pakaian merk A 100 ribu, harga pakaian merk C 200 ribu, artinya harga pakian merk A dan C memiliki interval 100 ribu
+Rasio: adalah skala yang mempunyai sifat nominal, ordinal, dan interval, serta mempunyai nilai rasio antar objek yang diukur.
+Contoh: harga pakaian merk A 100 ribu, harga pakaian merk C 200 ribu. Rasio harga pakaian A dengan pakaian C adalah ½. Sehingga dapat dikatakan bahwa harga pakaian C
+harganya 2 kali pakaian A.
