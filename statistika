@@ -7,17 +7,54 @@ Perbedaan antara statistik dan parameter adalah sebagai berikut:
 Statistik adalah nilai estimasi karateristik populasi.
 Parameter adalah nilai karakteristik populasi atau bisa disebut karakteristik sebenarnya.
 
+##
 Kuantitatif adalah data yang dinyatakan dalam bentuk angka
 Kualitatif adalah data yang dinyatakan dalam bentuk bukan angka
 
+
+##
 Dan berikut adalah jenis-jenis skala pengukuran data:
 
 Nominal: adalah skala yang diberikan hanya sebagai label saja, tidak mengandung pengertian tingkatan.
 Contoh: Jika pria =1 dan wanita = 2, artinya disini 1 dan 2 adalah nominal yang mewakili pria dan wanita. Disini nilai 2 tidak lebih besar dari nilai 1.
+
 Ordinal: adalah skala yang mengandung pengertian tingkatan.
 Contoh: Data kepuasan, 1 = tidak puas, 2 = puas, dan 3 = sangat puas, artinya 1<2<3.
+
 Interval: adalah skala yang mempunyai sifat ordinal dan mengandung jarak(interval).
-Misalnya: harga pakaian merk A 100 ribu, harga pakaian merk C 200 ribu, artinya harga pakian merk A dan C memiliki interval 100 ribu
+Contoh: harga pakaian merk A 100 ribu, harga pakaian merk C 200 ribu, artinya harga pakian merk A dan C memiliki interval 100 ribu
+
 Rasio: adalah skala yang mempunyai sifat nominal, ordinal, dan interval, serta mempunyai nilai rasio antar objek yang diukur.
 Contoh: harga pakaian merk A 100 ribu, harga pakaian merk C 200 ribu. Rasio harga pakaian A dengan pakaian C adalah ½. Sehingga dapat dikatakan bahwa harga pakaian C
 harganya 2 kali pakaian A.
+
+
+##
+Ukuran pemusatan (mean, modus, median)
+
+Modus adalah nilai yang sering muncul dari suatu distribusi (data nominal-data ordinal). Pake Mode; Mode(data_intro$Produk)
+Median adalah nilai tengah dari suatu distribusi (data interval dan rasio). Pake Median; median(data_intro$Pendapatan)
+Mean adalah rata-rata aritmatik dari suatu distribusi (data interval dan rasio). Pake Mean; mean(data_intro$Pendapatan)
+
+
+##
+Dari contoh praktik sebelumnya ada perbedaan hasil Median dan Mean untuk data interval dan rasio. Maka perlu diperhatikan untuk penggunaanya yaitu: 
+penggunaan mean sebaiknya digunakan jika tidak ada outlier. Sebaliknya jika ada outlier, maka sebaiknya menggunakan Median.
+
+##
+Ukuran sebaran yang sering digunakan adalah sebagai berikut :
+
+Range adalah selisih antara nilai terbesar dan nilai terendah
+
+Varians adalah simpangan kuadrat data dari nilai rata-ratanya
+
+Simpangan baku adalah simpangan data dari nilai rata-ratanya, simpangan baku nama lainnya adalah standard deviation. 
+Standard deviation dapat digunakan untuk melihat keakuratan dari hasil estimasi, semakin kecil standard deviation semakin akurat hasil estimasi.
+
+Range adalah selisih antara nilai terbesar dan nilai terendah; max(data_intro$Pendapatan) - min(data_intro$Pendapatan)
+
+
+##
+Function as.character mengubah id tiap pelanggan menjadi string/character - ditandai dengan tanda petik diantara kode unik tersebut.
+
+Function as.factor mengubah data kategorik
