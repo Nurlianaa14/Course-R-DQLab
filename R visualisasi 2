@@ -1,0 +1,11 @@
+#Penggunaan library(ggplot2)
+
+Plot adalah komponen paling dasar di ggplot2, tanpa plot seluruh grafik tidak akan bisa ditampilkan. Dengan demikian, plot adalah "kanvas" grafik. 
+Untuk membuat plot kita gunakan fungsi bernama ggplot()
+
+Kita dapat tambahkan komponen grafik lain di atas plot. Dan pada bab ini kita telah menambahkan:
+
+Teks judul dengan fungsi labs(title="...").
+Teks pada sumbu x dan y dengan fungsi labs(x="...", y="...").
+Selain itu juga ditunjukkan bagaimana sebaiknya objek plot disimpan ke variable. Dengan cara ini, kita bisa mengolahnya dengan lebih rapi. 
+Terakhir, kita menampilkan informasi plot ini dengan menggunakan fungsi summary.
