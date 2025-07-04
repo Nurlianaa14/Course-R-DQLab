@@ -4,9 +4,12 @@ Setelah analisis dat amuncul hipotesisi yang nantinya harus di uji hipotesisi ts
 ![image](https://github.com/user-attachments/assets/7021e402-21ce-4566-9ded-4c90ae287c6e)
 
 
+
 Gambar korelasi
 
 <img width="623" alt="image" src="https://github.com/user-attachments/assets/ac1e1cfc-ea24-4f19-8784-7f3e208e8634" />
+
+
 
 Aturan penggunaan visualisasi
 
