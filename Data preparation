@@ -377,3 +377,20 @@ atau bisa pake ini
 3     KEP. SERIBU UTR             P. HARAPAN 35-39.Laki-Laki    255
 4     KEP. SERIBU SLT         P. UNTUNG JAWA 35-39.Laki-Laki    199
 5     KEP. SERIBU SLT              P. TIDUNG 35-39.Laki-Laki     98
+
+
+## Split Field
+> penduduk.dki.transform <- melt(data=penduduk.dki.xlsx, id.vars=c( "NAMA.KECAMATAN", "NAMA.KELURAHAN"), measure.vars = c("35-39.Laki-Laki", "35-39.Perempuan"), variable.name = "DEMOGRAFIK", value.name="JUMLAH") 
+
+> #Memecah isi kolom DEMOGRAFIK menjadi "RENTANG.UMUR" dan "JENIS.KELAMIN"
+> penduduk.dki.transform[c("RENTANG.UMUR", "JENIS.KELAMIN")] <- colsplit(penduduk.dki.transform$DEMOGRAFIK,"\\.",c("RENTANG.UMUR","JENIS.KELAMIN"))
+
+> penduduk.dki.transform$DEMOGRAFIK <- NULL
+
+> penduduk.dki.transform
+       NAMA.KECAMATAN         NAMA.KELURAHAN JUMLAH RENTANG.UMUR JENIS.KELAMIN
+1     KEP. SERIBU UTR            P. PANGGANG    231        35-39     Laki-Laki
+2     KEP. SERIBU UTR              P. KELAPA     84        35-39     Laki-Laki
+3     KEP. SERIBU UTR             P. HARAPAN    255        35-39     Laki-Laki
+4     KEP. SERIBU SLT         P. UNTUNG JAWA    199        35-39     Laki-Laki
+5     KEP. SERIBU SLT              P. TIDUNG     98        35-39     Laki-Laki
