@@ -1,0 +1,87 @@
+#Sebelum melakukan analisis data, data harus masuk ke proses data preparation/data wrangling
+#Proses ini adalah proses membersihkan data atau data cleaning dan transformation
+
+# 1. Merepresentasikan missing value
+Yang menyebabkan missing value:
+- Dari hasil proses konversi data yang tidak berhasil / error
+- Karena mengakses posisi data pada indeks yang memang tidak memiliki data
+- Karena perhitungan matematika yang tidak dapat diproses sistem
+- Dari sumber data memang sudah tidak ada nilainya
+
+## NA (Not Available)
+NA adalah representasi utama dari missing value di R, dan merupakan suatu nilai atomik.
+Artinya posisi NA sama dengan contoh nilai-nilai atomik bilangan seperti 1, 2 atau 100. Juga sama dengan contoh nilai karakter seperti "a", "b",  atau "g".
+> typeof(NA)
+[1] "logical"
+
+> x <- NA
+> is.na(x)
+[1] TRUE
+
+> typeof(NA_integer_)
+[1] "integer"
+
+> typeof(NA_real_)
+[1] "double"
+
+> typeof(NA_complex_)
+[1] "complex"
+
+> typeof(NA_character_)
+[1] "character"
+
+> is.na(NA_integer_)
+[1] TRUE
+
+> is.na(NA_real_)
+[1] TRUE
+
+> is.na(NA_complex_)
+[1] TRUE
+
+> is.na(NA_character_)
+[1] TRUE
+
+##
+> #Membuat vector bernama isi.vector dengan isi bilangan, dimana salah satunya memiliki missing value
+> isi.vector <- c(1,2,3,NA,3,1)
+
+> #Mengecek keseluruhan tipe data dengan perulangan lapply dan typeof
+> lapply(isi.vector, typeof)
+[[1]]
+[1] "double"
+
+[[2]]
+[1] "double"
+
+[[3]]
+[1] "double"
+
+[[4]]
+[1] "double"
+
+[[5]]
+[1] "double"
+
+[[6]]
+[1] "double"
+
+
+> #Menggunakan is.na untuk mengecek keberadaan missing value dari tiap elemen pada vector 
+> is.na(isi.vector)
+[1] FALSE FALSE FALSE  TRUE FALSE FALSE
+
+## NULL
+NULL adalah nilai yang banyak digunakan di bahasa pemrograman lain ataupun SQL (Structured Query Language) untuk merepresentasikan objek yang tidak ada atau 
+null object (missing object) atau nilai yang tidak ada (missing value).
+Di dalam R, missing value telah direpresentasikan dengan NA. Nah, untuk missing object inilah kita menggunakan NULL di R.
+Atau lebih detilnya, NULL adalah suatu object khusus di R yang digunakan untuk merepresentasikan nilai atau object yang tidak terdefinisikan.
+
+Kalo ada null berati gak kehitung
+> #Membuat vector dengan 7 elemen termasuk NA dan NULL
+> isi.vector <- c(1, 2, 3, NA, 5, NULL, 7)
+
+> #Menghitung jumlah elemen dari isi.vector
+> length(isi.vector)
+[1] 6
+
