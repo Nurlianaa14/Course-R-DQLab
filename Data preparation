@@ -77,7 +77,7 @@ null object (missing object) atau nilai yang tidak ada (missing value).
 Di dalam R, missing value telah direpresentasikan dengan NA. Nah, untuk missing object inilah kita menggunakan NULL di R.
 Atau lebih detilnya, NULL adalah suatu object khusus di R yang digunakan untuk merepresentasikan nilai atau object yang tidak terdefinisikan.
 
-Kalo ada null berati gak kehitung
+Untuk vector kalo ada null berati gak kehitung
 > #Membuat vector dengan 7 elemen termasuk NA dan NULL
 > isi.vector <- c(1, 2, 3, NA, 5, NULL, 7)
 
@@ -85,3 +85,295 @@ Kalo ada null berati gak kehitung
 > length(isi.vector)
 [1] 6
 
+Untuk list kalo ada null tetep kehitung
+> #Membuat list dengan 3 elemen termasuk NA dan NULL 
+> isi.list <- list(1, NULL, 3, NA, 5)
+
+> #Menghitung jumlah elemen dari isi.list
+> length(isi.list)
+[1] 5
+
+
+#Inffinite number
+> #Hitung kalkulasi 5 dibagi dengan 0
+> 5/0
+[1] Inf
+
+> #Hitung kalkulasi -120 dibagi dengan 0
+> -120/0
+[1] -Inf
+
+
+## NaN
+NaN adalah representasi khusus untuk angka. Singkatan dari Not a Number, ini adalah representasi operasi matematika yang tidak bisa diwakili oleh angka apapun. 
+Sering sekali bisa dianggap missing value tapi untuk hasil perhitungan.
+> #Hitung kalkulasi 0 dibagi dengan 0
+> 0/0
+[1] NaN
+
+> #Hitung logaritma dari angka -1000
+> log(-1000)
+[1] NaN
+
+> #Periksa dengan function is.nan
+> conton.nan <- 0/0
+> is.nan(contoh.nan)
+[1] TRUE
+
+> is.na(NaN)
+[1] TRUE
+
+> is.nan(NA)
+[1] FALSE
+
+
+## hitung jumlah missing value
+> #Masukkan code di bawah ini sesuai permintaan soal
+> isi.vector <- c(1,2,NA,4,5,NaN,6)
+
+> sum(is.na(isi.vector)==TRUE)
+[1] 2
+
+##Factor
+Factor adalah suatu variable di R yang menyimpan daftar nilai-nilai kategori atau nominal.Contoh: 
+Nama bulan: Januari, Februari, Maret.
+Jenis pakaian: Atasan, Jeans, Rok, Kaos.
+Satuan berat: kg, mg, ton, kwintal.
+Jika tidak terbatas atau kontinu, misalkan angka berat seperti 64.5 kg, 11.2 kg, 80.39 kg, dan seterusnya – maka ini tidak bisa digolongkan sebagai factor.
+
+
+##Kita sebaiknya menggunakan factor ketika kita ingin
+
+memastikan bahwa variable yang kita gunakan memiliki data terbatas (diskrit)
+dan menginformasikan kepastian ini kepada function atau model analisa yang kita gunakan
+
+> #Buatlah factor dengan isi nilai teks "Jan", "Feb", dan "Mar"
+> factor(c("Jan","Feb","Mar"))
+[1] Jan Feb Mar
+Levels: Feb Jan Mar
+
+## Attribut factor
+> #Variable factor bernama faktor.bulan dengan nilai teks "Jan", "Feb", dan "Mar"
+> faktor.bulan <- factor(c("Jan","Feb","Mar"))
+
+> attributes(faktor.bulan)
+$levels
+[1] "Feb" "Jan" "Mar"
+
+$class
+[1] "factor"
+
+##
+> #Variable factor bernama faktor.bulan dengan nilai teks "Jan", "Feb", dan "Mar"
+> faktor.bulan <- factor(c("Jan","Feb","Mar"))
+
+> levels(faktor.bulan)
+[1] "Feb" "Jan" "Mar"
+
+> class(faktor.bulan)
+[1] "factor"
+
+## Perulangan nilai factor
+> #Buatlah factor dengan teks "Jan", "Feb", "Mar","Jan","Mar", dan "Jan"
+> 
+> factor(c("Jan","Feb","Mar","Jan","Mar","Jan"))
+[1] Jan Feb Mar Jan Mar Jan
+Levels: Feb Jan Mar
+
+## Proses factor disimpan
+R menerima perintah dengan function factor(c("Jan","Feb","Mar","Jan","Mar"))
+R akan mencari variasi nilai (levels) dan diurutkan – dalam hal ini pengurutan alfabet – dan dipetakan berdasarkan index yang bernilai integer.
+Disini nilai index 1 mewakili "Feb", 2 mewakili "Jan", dan 3 mewakili "Mar"
+Dari levels, nilai-nilai "Jan", "Feb", "Mar","Jan","Mar" dicari nilai index-nya dan dimasukkan sebagai nilai-nilai pada factor ( 2, 1, 3, 2, 3).
+
+## Mengambil nilai-nilai index integer pada factor
+> #Buatlah factor dengan teks "Jan", "Feb", "Mar","Jan","Mar", dan "Jan"
+> factor.bulan <- factor(c("Jan","Feb","Mar","Jan","Mar","Jan"))
+
+> as.integer(factor.bulan)
+[1] 2 1 3 2 3 2
+
+##
+> #Buatlah factor dengan teks "Jan", "Feb", "Mar","Jan","Mar", dan "Jan"
+> factor.bulan <- factor(c("Jan","Feb","Mar","Jan","Mar","Jan"))
+
+> #Mengganti levels 
+> levels(factor.bulan)[2] <- "Januari"
+
+> levels(factor.bulan)[3] <- "Maret"
+
+> factor.bulan
+[1] Januari Feb     Maret   Januari Maret   Januari
+Levels: Feb Januari Maret
+
+##
+> #Buatlah factor bernama factor.umur dengan isi c(12, 35, 24, 12, 35, 37)
+> factor.umur <- factor(c(12, 35, 24, 12, 35, 37))
+
+> #Tampilkan variable factor.umur 
+> factor.umur
+[1] 12 35 24 12 35 37
+Levels: 12 24 35 37
+
+##
+> #Buatlah variable factor.lokasi dengan isi berupa vector c("Bandung", "Jakarta", NA, "Jakarta", NaN, "Medan", NULL, NULL, "Bandung") 
+> factor.lokasi <- factor(c("Bandung", "Jakarta", NA, "Jakarta", NaN, "Medan", NULL, NULL, "Bandung"))
+
+> #Tampilkan factor.lokasi
+> factor.lokasi
+[1] Bandung Jakarta <NA>    Jakarta NaN     Medan   Bandung
+Levels: Bandung Jakarta Medan NaN
+
+## Hitung panjang factor
+> #Buatlah variable factor.lokasi dengan isi berupa vector c("Bandung", "Jakarta", NA, "Jakarta", NaN, "Medan", NULL, NULL, "Bandung") 
+> factor.lokasi <- factor(c("Bandung", "Jakarta", NA, "Jakarta", NaN, "Medan", NULL, NULL, "Bandung"))
+
+> #Tampilkan panjang dari variable factor.lokasi
+> length(factor.lokasi) 
+[1] 7
+
+
+## Menyusun factor
+> #Variable factor dengan isi vector c("Jan","Feb","Mar","Jan","Mar") 
+> factor(c("Jan","Feb","Mar","Jan","Mar"), levels = c("Jan","Feb","Mar"))
+[1] Jan Feb Mar Jan Mar
+Levels: Jan Feb Mar
+
+
+## Structir transformation
+
+# Melihat nama kolom
+> #Membaca dataset csv
+> penduduk.dki.csv <-read.csv("https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.csv", sep=",")
+
+> #Menggunakan names untuk variable penduduk.dki.csv
+> names(penduduk.dki.csv)
+ [1] "TAHUN"                "NAMA.PROVINSI"        "NAMA.KABUPATEN.KOTA" 
+ [4] "NAMA.KECAMATAN"       "NAMA.KELURAHAN"       "LUAS.WILAYAH..KM2."  
+ [7] "KEPADATAN..JIWA.KM2." "X"                    "X.1"                 
+[10] "X.2"                  "X.3"                  "X.4"                 
+[13] "X.5"                  "X.6"                  "X.7"                 
+[16] "X.8"                  "X.9"                  "X.10"                
+[19] "X.11"                 "X35.39.Laki.Laki"     "X35.39.Perempuan"    
+[22] "X40.44.Laki.Laki"     "X40.44.Perempuan"     "X45.49.Laki.Laki"    
+[25] "X45.49.Perempuan"     "X50.54.Laki.Laki"     "X50.54.Perempuan"    
+[28] "X55.59.Laki.Laki"     "X55.59.Perempuan"     "X60.64.Laki.Laki"    
+[31] "X60.64.Perempuan"     "X65.69.Laki.Laki"     "X65.69.Perempuan"    
+[34] "X70.74.Laki.Laki"     "X70.74.Perempuan"     "X.75.Laki.Laki"      
+[37] "X.75..Perempuan"     
+
+
+# Merubah nama kolom
+> names(penduduk.dki.csv)[1] <- "PERIODE"
+
+> names(penduduk.dki.csv)[2] <- "PROPINSI"
+
+atau bisa pake ini
+
+> names(penduduk.dki.csv)[c(1:2)] <- c("PERIODE", "PROPINSI")
+
+> names(penduduk.dki.csv)
+ [1] "PERIODE"              "PROPINSI"             "NAMA.KABUPATEN.KOTA" 
+ [4] "NAMA.KECAMATAN"       "NAMA.KELURAHAN"       "LUAS.WILAYAH..KM2."  
+ [7] "KEPADATAN..JIWA.KM2." "X"                    "X.1"                 
+[10] "X.2"                  "X.3"                  "X.4"                 
+[13] "X.5"                  "X.6"                  "X.7"                 
+[16] "X.8"                  "X.9"                  "X.10"                
+[19] "X.11"                 "X35.39.Laki.Laki"     "X35.39.Perempuan"    
+[22] "X40.44.Laki.Laki"     "X40.44.Perempuan"     "X45.49.Laki.Laki"    
+[25] "X45.49.Perempuan"     "X50.54.Laki.Laki"     "X50.54.Perempuan"    
+[28] "X55.59.Laki.Laki"     "X55.59.Perempuan"     "X60.64.Laki.Laki"    
+[31] "X60.64.Perempuan"     "X65.69.Laki.Laki"     "X65.69.Perempuan"    
+[34] "X70.74.Laki.Laki"     "X70.74.Perempuan"     "X.75.Laki.Laki"      
+[37] "X.75..Perempuan"     
+
+
+> #Membuang kolom X, X.1, X.2 s/d X.11
+> penduduk.dki.csv <- penduduk.dki.csv[,!names(penduduk.dki.csv) %in% c("X", "X.1","X.2","X.3","X.4","X.5","X.6","X.7","X.8","X.9", "X.10","X.11")]
+
+> names(penduduk.dki.csv)
+ [1] "TAHUN"                "NAMA.PROVINSI"        "NAMA.KABUPATEN.KOTA" 
+ [4] "NAMA.KECAMATAN"       "NAMA.KELURAHAN"       "LUAS.WILAYAH..KM2."  
+ [7] "KEPADATAN..JIWA.KM2." "X35.39.Laki.Laki"     "X35.39.Perempuan"    
+[10] "X40.44.Laki.Laki"     "X40.44.Perempuan"     "X45.49.Laki.Laki"    
+[13] "X45.49.Perempuan"     "X50.54.Laki.Laki"     "X50.54.Perempuan"    
+[16] "X55.59.Laki.Laki"     "X55.59.Perempuan"     "X60.64.Laki.Laki"    
+[19] "X60.64.Perempuan"     "X65.69.Laki.Laki"     "X65.69.Perempuan"    
+[22] "X70.74.Laki.Laki"     "X70.74.Perempuan"     "X.75.Laki.Laki"      
+[25] "X.75..Perempuan"    
+
+
+# Mengubah kolom jadi factor
+> library(openxlsx)
+
+> #Membaca dataset dengan read.xlsx dan dimasukkan ke variable penduduk.dki
+> penduduk.dki.xlsx <- read.xlsx(xlsxFile="https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.xlsx")
+
+> penduduk.dki.xlsx$NAMA.PROVINSI <- as.factor(penduduk.dki.xlsx$NAMA.PROVINSI)
+
+> str(penduduk.dki.xlsx)
+'data.frame':	267 obs. of  25 variables:
+ $ TAHUN               : num  2013 2013 2013 2013 2013 ...
+ $ NAMA.PROVINSI       : Factor w/ 1 level "PROVINSI DKI JAKARTA": 1 1 1 1 1 1 1 1 1 1 ...
+ $ NAMA.KABUPATEN/KOTA : chr  "KAB.ADM.KEP.SERIBU" "KAB.ADM.KEP.SERIBU" "KAB.ADM.KEP.SERIBU" "KAB.ADM.KEP.SERIBU" ...
+ $ NAMA.KECAMATAN      : chr  "KEP. SERIBU UTR" "KEP. SERIBU UTR" "KEP. SERIBU UTR" "KEP. SERIBU SLT" ...
+ $ NAMA.KELURAHAN      : chr  "P. PANGGANG" "P. KELAPA" "P. HARAPAN" "P. UNTUNG JAWA" ...
+ $ LUAS.WILAYAH.(KM2)  : num  0.91 3.76 3.59 0.59 1.57 1.39 2.58 1.26 1.12 1.14 ...
+ $ KEPADATAN.(JIWA/KM2): num  6779 1705 628 3625 3084 ...
+ $ 35-39.Laki-Laki     : num  231 84 255 199 98 113 166 850 954 752 ...
+ $ 35-39.Perempuan     : num  235 88 238 185 75 112 174 748 920 675 ...
+ $ 40-44.Laki-Laki     : num  233 99 232 178 73 108 130 749 914 691 ...
+ $ 40-44.Perempuan     : num  210 88 234 176 94 80 165 798 943 691 ...
+ $ 45-49.Laki-Laki     : num  171 72 212 162 67 66 176 779 871 659 ...
+ $ 45-49.Perempuan     : num  158 63 193 139 69 62 162 766 823 631 ...
+ $ 50-54.Laki-Laki     : num  137 34 150 100 60 61 129 715 736 611 ...
+ $ 50-54.Perempuan     : num  126 29 161 119 40 63 97 662 679 514 ...
+ $ 55-59.Laki-Laki     : num  98 30 139 97 37 37 108 614 680 539 ...
+ $ 55-59.Perempuan     : num  106 39 101 83 32 36 90 537 510 466 ...
+ $ 60-64.Laki-Laki     : num  72 29 73 58 22 32 88 555 544 428 ...
+ $ 60-64.Perempuan     : num  65 24 56 56 13 26 42 343 421 279 ...
+ $ 65-69.Laki-Laki     : num  36 12 18 40 18 21 68 413 398 328 ...
+ $ 65-69.Perempuan     : num  33 21 35 54 15 14 34 215 235 160 ...
+ $ 70-74.Laki-Laki     : num  33 13 24 26 10 17 37 259 241 215 ...
+ $ 70-74.Perempuan     : num  20 5 25 27 18 11 32 142 132 116 ...
+ $ >75.Laki-Laki       : num  13 5 18 16 11 8 34 214 215 150 ...
+ $ >75.Perempuan       : num  27 8 26 13 17 7 23 165 159 121 ...
+
+
+# Mengambil kolom
+> #Tampilkan nama-nama kolom yang mengandung kata "perempuan".
+> pola_nama_perempuan <- grep(pattern="perempuan", x =names(penduduk.dki.xlsx), ignore.case=TRUE)
+
+> names(penduduk.dki.xlsx[pola_nama_perempuan])
+[1] "35-39.Perempuan" "40-44.Perempuan" "45-49.Perempuan" "50-54.Perempuan"
+[5] "55-59.Perempuan" "60-64.Perempuan" "65-69.Perempuan" "70-74.Perempuan"
+[9] ">75.Perempuan"  
+
+> #Tampilkan nama-nama kolom yang mengandung kata "laki-laki"
+> pola_nama_laki_laki <-  grep(pattern="laki-laki", x =names(penduduk.dki.xlsx), ignore.case=TRUE)
+
+> names(penduduk.dki.xlsx[pola_nama_laki_laki])
+[1] "35-39.Laki-Laki" "40-44.Laki-Laki" "45-49.Laki-Laki" "50-54.Laki-Laki"
+[5] "55-59.Laki-Laki" "60-64.Laki-Laki" "65-69.Laki-Laki" "70-74.Laki-Laki"
+[9] ">75.Laki-Laki"  
+
+
+# Menambah kolom
+> #Tampilkan nama-nama kolom yang mengandung kata "perempuan".
+> pola_nama_perempuan <- grep(pattern="perempuan", x = names(penduduk.dki.xlsx), ignore.case=TRUE)
+
+> penduduk.dki.xlsx$PEREMPUAN35TAHUNKEATAS  <- rowSums(penduduk.dki.xlsx[pola_nama_perempuan])
+
+
+## Normalisasi data
+> #Transformasi kolom dataset penduduk.dki.xlsx, disimpan ke variable penduduk.dki.transform
+> penduduk.dki.transform <- melt(data=penduduk.dki.xlsx, id.vars=c( "NAMA.KECAMATAN", "NAMA.KELURAHAN"), measure.vars = c("35-39.Laki-Laki", "35-39.Perempuan"), variable.name = "DEMOGRAFIK", value.name="JUMLAH")
+
+> #Menampilkan variable penduduk.dki.transform
+> penduduk.dki.transform
+       NAMA.KECAMATAN         NAMA.KELURAHAN      DEMOGRAFIK JUMLAH
+1     KEP. SERIBU UTR            P. PANGGANG 35-39.Laki-Laki    231
+2     KEP. SERIBU UTR              P. KELAPA 35-39.Laki-Laki     84
+3     KEP. SERIBU UTR             P. HARAPAN 35-39.Laki-Laki    255
+4     KEP. SERIBU SLT         P. UNTUNG JAWA 35-39.Laki-Laki    199
+5     KEP. SERIBU SLT              P. TIDUNG 35-39.Laki-Laki     98
