@@ -21,3 +21,13 @@ Gambar korelasi
 ### Mising value
 
 <img width="853" alt="image" src="https://github.com/user-attachments/assets/26372866-49e6-4ab0-a5c2-991d9290c89d" />
+
+### Normalisasi data
+
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/e75767b5-de00-48ab-aa1f-efc0dbf9c4a5" />
+
+### Split Field
+
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/6cd6aa14-d896-4e32-a422-3946d41013c8" />
+
+
