@@ -16,3 +16,8 @@ Gambar korelasi
 ![image](https://github.com/user-attachments/assets/3c830ea6-c79b-4f07-b59e-118fe8cef996)
 
 ![image](https://github.com/user-attachments/assets/92b0ed6f-7b01-4d34-99e0-85216c2daff5)
+
+---
+### Mising value
+
+<img width="853" alt="image" src="https://github.com/user-attachments/assets/26372866-49e6-4ab0-a5c2-991d9290c89d" />
